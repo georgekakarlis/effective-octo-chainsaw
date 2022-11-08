@@ -1,8 +1,8 @@
-import { unstable_getServerSession } from 'next-auth';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
 import useSocket from '../../hooks/useSocket';
+
 
 
 
@@ -16,6 +16,7 @@ const ICE_SERVERS = {
 };
 
 const Room = () => {
+
   useSocket();
   const [micActive, setMicActive] = useState(true);
   const [cameraActive, setCameraActive] = useState(true);
@@ -253,7 +254,9 @@ const Room = () => {
     router.push('/')
   };
 
+
   return (
+   
     <div>
       <video autoPlay ref={userVideoRef} />
       <video autoPlay ref={peerVideoRef} />
@@ -269,5 +272,8 @@ const Room = () => {
     </div>
   );
 };
+
+
+
 
 export default Room;

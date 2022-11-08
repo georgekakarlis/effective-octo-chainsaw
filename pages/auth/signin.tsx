@@ -1,3 +1,4 @@
+import { CtxOrReq } from "next-auth/client/_utils"
 import { getCsrfToken, getProviders, signIn, useSession } from "next-auth/react"
 
 
@@ -18,7 +19,7 @@ export default function signin({ providers }) {
 
 
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: CtxOrReq | undefined) {
     const providers = await getProviders()
     const csrfToken = await getCsrfToken(context)
     return {
